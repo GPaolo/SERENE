@@ -55,6 +55,9 @@ As for the `run_experiment.py` script, you can change the parameters or provide 
 
 Once the evaluation is done, the trajectories will be saved in the experiment folder, inside a folder called `analyzed_data`.
 
+If you use the `-abd` flag when launching the `evaluate_archive.py` script, the code will generate a collection of the behavior descriptors of all the agents.
+This collection can be used through the `analysis/search_video.py` script to generate a video of the exploration performed by the algorithm.
+
 ### Plotting the results
 Finally you can plot your results by using the jupyter notebook `archive_analysis` located in the `analysis` folder.
 
