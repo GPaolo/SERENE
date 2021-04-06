@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+## SparsE Reward Exploration via Novelty search and Emitters
 
-You can use the [editor on GitHub](https://github.com/GPaolo/SERENE/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This is the repository for the SERENE algorithm introduced in the [Sparse Rewards Exploration via Novelty Search and Emitters](https://arxiv.org/abs/2102.03140) published at GECCO 2021.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+You can find the instructions on how to use the code in the `README` of the repository.
 
-### Markdown
+### Abstract
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Reward-based optimization algorithms require both exploration, to find rewards, and exploitation, to maximize performance. The need for efficient exploration is even more significant in sparse reward settings, in which performance feedback is given sparingly, thus rendering it unsuitable for guiding the search process. In this work, we introduce the SparsE Reward Exploration via Novelty and Emitters (SERENE) algorithm, capable of efficiently exploring a search space, as well as optimizing rewards found in potentially disparate areas. Contrary to existing emitters-based approaches, SERENE separates the search space exploration and reward exploitation into two alternating processes. The first process performs exploration through Novelty Search, a divergent search algorithm. The second one exploits discovered reward areas through emitters, i.e. local instances of population-based optimization algorithms. A meta-scheduler allocates a global computational budget by alternating between the two processes, ensuring the discovery and efficient exploitation of disjoint reward areas. SERENE returns both a collection of diverse solutions covering the search space and a collection of high-performing solutions for each distinct reward area. We evaluate SERENE on various sparse reward environments and show it compares favorably to existing baselines.
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+---
+#### Authors
+Giuseppe Paolo, Alexandre Coninx, Stephane Doncieux, Alban Laflaquière
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+### To cite
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/GPaolo/SERENE/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+@article{paolo2021sparse,
+  title={Sparse Reward Exploration via Novelty Search and Emitters},
+  author={Paolo, Giuseppe and Coninx, Alexandre and Doncieux, Stephane and Laflaqui{\`e}re, Alban},
+  journal={arXiv preprint arXiv:2102.03140},
+  year={2021},
+  howpublished = {\url{https://github.com/GPaolo/novelty_search_gym}}
+}
+```
