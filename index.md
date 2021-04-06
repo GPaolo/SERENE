@@ -13,6 +13,8 @@ Reward-based optimization algorithms require both exploration, to find rewards, 
 #### Authors
 Giuseppe Paolo, Alexandre Coninx, Stephane Doncieux, Alban Laflaquière
 
+**Contact:** giuseppe.paolo93@gmail.com
+
 ### To cite
 ```
 @article{paolo2021sparse,
