@@ -20,7 +20,7 @@ Reward-based optimization algorithms require both exploration, to find rewards, 
  ![](https://github.com/GPaolo/SERENE/blob/gh-pages/curling_exploration.gif)
  
 #### HardMaze environment
-![](https://github.com/GPaolo/SERENE/blob/gh-pages/maze_exploration.gif)
+![](https://github.com/GPaolo/SERENE/blob/gh-pages/hardmaze_exploration.gif)
 
 #### NDofArm environment
 ![](https://github.com/GPaolo/SERENE/blob/gh-pages/arm_exploration.gif)
