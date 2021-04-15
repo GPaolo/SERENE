@@ -205,29 +205,8 @@ class CMANS(EmitterEvolver):
         self.emitters[emitter_idx].values.append(self.emitters[emitter_idx].pop['reward'])
         self.update_reward_archive(generation, self.emitters, emitter_idx)
 
-        # Now calculate novelties and change parent with most novel offspring
-        # ---------------------
-        novelties = self.calculate_emitter_novelty(ns_reference_set, emitter_idx, pool=pool)
-        most_novel = np.argmax(novelties)
-
-        if novelties[most_novel] > self.emitters[emitter_idx].most_novel['novelty']:
-          self.emitters[emitter_idx].pop[most_novel]['id'] = ns_pop.agent_id  # Recognize agent by giving it a valid ID
-          self.emitters[emitter_idx].pop[most_novel]['parent'] = emitter_idx # The parent of the most novel is saved as the emitter ancestor
-          ns_pop.agent_id += 1  # Update max ID reached
-
-          # TODO still worth it?
-          try:
-            try:
-              parent_idx = ns_pop['id'].index(self.emitters[emitter_idx].most_novel['id'])
-              ns_pop[parent_idx] = self.emitters[emitter_idx].pop[most_novel].copy()
-            except:
-              parent_idx = ns_off['id'].index(self.emitters[emitter_idx].most_novel['id'])
-              ns_off[parent_idx] = self.emitters[emitter_idx].pop[most_novel].copy()
-          except:
-            pass  # In this case the parent is not in the population anymore
-
-          self.emitters[emitter_idx].most_novel = self.emitters[emitter_idx].pop[most_novel].copy()
-        # ---------------------
+        # Now calculate novelties and update most novel
+        self.update_emitter_novelties(ns_ref_set=ns_reference_set, ns_pop=ns_pop, emitter_idx=emitter_idx, pool=pool)
 
         # Update counters
         # step_count += 1
