@@ -214,12 +214,12 @@ class EmitterEvolver(BaseEvolver):
       rew_archive_bd = []
     return population_bd + offsprings_bd + archive_bd + rew_archive_bd
 
-  def calculate_emitter_novelty(self, ns_ref_set, emitter_idx, pool=None):
+  def update_emitter_novelties(self, ns_ref_set, ns_pop, emitter_idx, pool=None):
     """
-    This function calculates the novelty of the emitter pop
-    :param ns_ref_set:
-    :param ns_arch_cand:
-    :param parent_novelty:
+    This function updates the most novel agent found by the emitter and the NOVELTY_CANDIDATES_BUFFER.
+    It does this by calculating the novelty of the current pop of the emitter.
+    :param ns_ref_set: Reference set to calculate Novelty
+    :param ns_pop: Novelty Search population
     :param emitter_idx:
     :param pool:
     :return:
@@ -231,12 +231,19 @@ class EmitterEvolver(BaseEvolver):
 
     self.emitters[emitter_idx].pop['novelty'] = novelties
 
-    # Store the agents whose novelty is higher than the max novelty from previous iteration.
-    # These agents are candidates for the NS archive
+    # Save in the NS archive candidates buffer the agents with a novelty higher than the previous most novel
     for emitter_agent in self.emitters[emitter_idx].pop:
-      if emitter_agent['novelty'] > self.emitters[emitter_idx].ancestor['novelty']:
+      if emitter_agent['novelty'] > self.emitters[emitter_idx].most_novel['novelty']:
         self.emitters[emitter_idx].ns_arch_candidates.add(copy.deepcopy(emitter_agent))
-    return novelties
+
+    # Update emitter most novel
+    most_novel = np.argmax(novelties)
+    if novelties[most_novel] > self.emitters[emitter_idx].most_novel['novelty']:
+      self.emitters[emitter_idx].pop[most_novel]['id'] = ns_pop.agent_id  # Recognize most novel agent by giving it a valid ID
+      self.emitters[emitter_idx].pop[most_novel]['parent'] = emitter_idx  # The emitter idx is saved as the parent of the most novel
+      ns_pop.agent_id += 1  # Update max ID reached
+
+      self.emitters[emitter_idx].most_novel = self.emitters[emitter_idx].pop[most_novel].copy() # Update most novel
 
   def candidates_by_novelty(self, pool=None):
     """
