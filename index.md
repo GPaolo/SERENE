@@ -42,6 +42,7 @@ We also show how the archive and the reward archive are filled during such explo
 #### Policies
 ![ant_pol](./ant_policies.gif)
 
+
 ### To cite
 ```
 @article{paolo2021sparse,
