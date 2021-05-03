@@ -21,25 +21,25 @@ We also show how the archive and the reward archive are filled during such explo
 ### Curling environment
 ![cur](./curling_exploration.gif)
 
-#### Policies
+##### Discovered Policies
 ![cur_pol](./curling_policies.gif)
  
 ### HardMaze environment
 ![maze](./hardmaze_exploration.gif)
 
-#### Policies
+##### Discovered Policies
 ![maze_pol](./hardmaze_policies.gif)
 
 ### NDofArm environment
 ![arm](./arm_exploration.gif)
 
-#### Policies
+##### Discovered Policies
 ![arm_pol](./arm_policies.gif)
 
 ### AntMaze environment
 ![ant](./ant_exploration.gif)
 
-#### Policies
+##### Discovered Policies
 ![ant_pol](./ant_policies.gif)
 
 
