@@ -15,20 +15,32 @@ Giuseppe Paolo, Alexandre Coninx, Stephane Doncieux, Alban Laflaquière
 Reward-based optimization algorithms require both exploration, to find rewards, and exploitation, to maximize performance. The need for efficient exploration is even more significant in sparse reward settings, in which performance feedback is given sparingly, thus rendering it unsuitable for guiding the search process. In this work, we introduce the SparsE Reward Exploration via Novelty and Emitters (SERENE) algorithm, capable of efficiently exploring a search space, as well as optimizing rewards found in potentially disparate areas. Contrary to existing emitters-based approaches, SERENE separates the search space exploration and reward exploitation into two alternating processes. The first process performs exploration through Novelty Search, a divergent search algorithm. The second one exploits discovered reward areas through emitters, i.e. local instances of population-based optimization algorithms. A meta-scheduler allocates a global computational budget by alternating between the two processes, ensuring the discovery and efficient exploitation of disjoint reward areas. SERENE returns both a collection of diverse solutions covering the search space and a collection of high-performing solutions for each distinct reward area. We evaluate SERENE on various sparse reward environments and show it compares favorably to existing baselines.
 
 ---
-## Exploration
+## Visualization
 Here are some representation on how the algorithm explores the search space through its population and offsprings.
 We also show how the archive and the reward archive are filled during such exploration.
 ### Curling environment
 ![cur](./curling_exploration.gif)
+
+#### Policies
+![cur_pol](./curling_policies.gif)
  
 ### HardMaze environment
 ![maze](./hardmaze_exploration.gif)
 
+#### Policies
+![maze_pol](./hardmaze_policies.gif)
+
 ### NDofArm environment
 ![arm](./arm_exploration.gif)
 
+#### Policies
+![arm_pol](./arm_policies.gif)
+
 ### AntMaze environment
 ![ant](./ant_exploration.gif)
+
+#### Policies
+![ant_pol](./ant_policies.gif)
 
 ### To cite
 ```
